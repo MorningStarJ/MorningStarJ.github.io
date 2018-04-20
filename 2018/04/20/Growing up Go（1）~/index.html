@@ -99,23 +99,26 @@
 
 
 
-  <meta name="description" content="Talk is cheap, show me the code">
-<meta property="og:type" content="website">
+  <meta name="description" content="Introduce先安装~我是Mac os 系统，而且本人比较懒肯定用 Homebrew 啦~brew install go安装完成后将其添加到.zshrc文件(zsh模式，其他系统、shell模式自行解决)vim ~/.zshrc 12345#别问我这个命令哪来的，homebrew 安装完给的export PATH=$PATH:/usr/local/opt/go/libexec/bin#&amp;#12">
+<meta property="og:type" content="article">
 <meta property="og:title" content="Inception">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:url" content="http://yoursite.com/2018/04/20/Growing up Go（1）~/index.html">
 <meta property="og:site_name" content="Inception">
-<meta property="og:description" content="Talk is cheap, show me the code">
+<meta property="og:description" content="Introduce先安装~我是Mac os 系统，而且本人比较懒肯定用 Homebrew 啦~brew install go安装完成后将其添加到.zshrc文件(zsh模式，其他系统、shell模式自行解决)vim ~/.zshrc 12345#别问我这个命令哪来的，homebrew 安装完给的export PATH=$PATH:/usr/local/opt/go/libexec/bin#&amp;#12">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/2018/04/20/Growing%20up%20Go（1）~/media/15242152439252/QQ20180420-150115@2x.png">
+<meta property="og:updated_time" content="2018-04-20T09:42:52.065Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Inception">
-<meta name="twitter:description" content="Talk is cheap, show me the code">
+<meta name="twitter:description" content="Introduce先安装~我是Mac os 系统，而且本人比较懒肯定用 Homebrew 啦~brew install go安装完成后将其添加到.zshrc文件(zsh模式，其他系统、shell模式自行解决)vim ~/.zshrc 12345#别问我这个命令哪来的，homebrew 安装完给的export PATH=$PATH:/usr/local/opt/go/libexec/bin#&amp;#12">
+<meta name="twitter:image" content="http://yoursite.com/2018/04/20/Growing%20up%20Go（1）~/media/15242152439252/QQ20180420-150115@2x.png">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/04/20/Growing up Go（1）~/"/>
 
 
 
@@ -125,7 +128,7 @@
   };
 </script>
 
-  <title>Inception</title>
+  <title> | Inception</title>
   
 
 
@@ -172,8 +175,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -258,9 +260,9 @@
           
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -292,9 +294,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/04/20/Growing up Go（1）~/" itemprop="url">Untitled</a></h1>
+          <h1 class="post-title" itemprop="name headline"></h1>
         
 
         <div class="post-meta">
@@ -343,9 +343,7 @@
       
 
       
-        
-          
-            <h2 id="Introduce"><a href="#Introduce" class="headerlink" title="Introduce"></a>Introduce</h2><p>先安装~<br>我是Mac os 系统，而且本人比较懒肯定用 <a href="https://brew.sh/" target="_blank" rel="noopener">Homebrew</a> 啦~<br><code>brew install go</code><br>安装完成后将其添加到<code>.zshrc</code>文件(zsh模式，其他系统、shell模式自行解决)<br><code>vim ~/.zshrc</code></p>
+        <h2 id="Introduce"><a href="#Introduce" class="headerlink" title="Introduce"></a>Introduce</h2><p>先安装~<br>我是Mac os 系统，而且本人比较懒肯定用 <a href="https://brew.sh/" target="_blank" rel="noopener">Homebrew</a> 啦~<br><code>brew install go</code><br>安装完成后将其添加到<code>.zshrc</code>文件(zsh模式，其他系统、shell模式自行解决)<br><code>vim ~/.zshrc</code></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#别问我这个命令哪来的，homebrew 安装完给的</span><br><span class="line">export PATH=$PATH:/usr/local/opt/go/libexec/bin</span><br><span class="line">#&#123;WorkSpace Path&#125;代表你的工作空间目录</span><br><span class="line">export GOPATH=&#123;WorkSpace Path&#125; </span><br><span class="line">export PATH=$PATH:$GOPATH/bin</span><br></pre></td></tr></table></figure>
 <p>GOPATH 是一个环境变量，这个环境变量是你工作空间的位置，主要作用就是在执行go 命令的时候方便很多</p>
 <h5 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h5><p>在工作目录下创建三个子目录（go约定的为啥我也不造）</p>
@@ -401,8 +399,6 @@
 <h3 id="学习链接："><a href="#学习链接：" class="headerlink" title="学习链接："></a>学习链接：</h3><p><a href="https://go-zh.org/doc/" target="_blank" rel="noopener">https://go-zh.org/doc/</a></p>
 <p><a href="https://github.com/astaxie/build-web-application-with-golang/blob/master/zh/preface.md" target="_blank" rel="noopener">https://github.com/astaxie/build-web-application-with-golang/blob/master/zh/preface.md</a></p>
 
-          
-        
       
     </div>
 
@@ -422,249 +418,28 @@
       
 
       
-
-      
-
       
       
-        <div class="post-eof"></div>
+
       
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/26/调教正则’妹纸‘/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MorningStar">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Inception">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/03/26/调教正则’妹纸‘/" itemprop="url">调教正则’妹纸‘~</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-26T18:14:26+08:00">2018-03-26</time>
+              <a href="/2018/03/26/调教正则’妹纸‘/" rel="next" title="调教正则’妹纸‘~">
+                <i class="fa fa-chevron-left"></i> 调教正则’妹纸‘~
+              </a>
             
+          </div>
 
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
             
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-            <h3 id="反正关于正则的讨论那么多了也不差我一个多分享下在Swift-4-0-中使用正则"><a href="#反正关于正则的讨论那么多了也不差我一个多分享下在Swift-4-0-中使用正则" class="headerlink" title="反正关于正则的讨论那么多了也不差我一个多分享下在Swift 4.0 中使用正则~"></a>反正关于正则的讨论那么多了也不差我一个多分享下在Swift 4.0 中使用正则~</h3><h2 id="听人介绍"><a href="#听人介绍" class="headerlink" title="听人介绍"></a>听人介绍</h2><h3 id="正则？WTF？"><a href="#正则？WTF？" class="headerlink" title="正则？WTF？"></a>正则？WTF？</h3><p>术语点，文本匹配（各语言通用）的规则工具，精准描述你对文本的需求</p><p><br>例子解释，比如说你给某App做登录功能，要求密码是6到18位并且只能是数字英文，那么实现这个要求的东西就是正则（当然有别的办法，本文主要说正则）</p><p><br>ps:例子均以<font color="#F3B240">Swift 4.0</font>实现，说的简单写上去语法容易忘，贼唧(儿)难记难懂</p>
-<h2 id="约"><a href="#约" class="headerlink" title="约"></a>约</h2><h3 id="正确的号码才能交流"><a href="#正确的号码才能交流" class="headerlink" title="正确的号码才能交流"></a>正确的号码才能交流</h3><p>假设<del>妹纸给了电话号</del>，我们要验证电话号正确性，确认了电话号码无误，这样你才能<del>约</del>进行下一步</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> phonePattern = <span class="string">"^1\\d\\d\\d\\d\\d\\d\\d\\d\\d\\d$"</span></span><br><span class="line"><span class="keyword">let</span> phoneRegex: <span class="type">NSRegularExpression</span></span><br><span class="line"><span class="keyword">do</span> &#123;</span><br><span class="line"><span class="keyword">try</span> phoneRegex = <span class="type">NSRegularExpression</span>(pattern: phonePattern, options: .caseInsensitive)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> phoneNumber = <span class="string">"18812345678"</span></span><br><span class="line"><span class="keyword">let</span> match = phoneRegex.matches(<span class="keyword">in</span>: phoneNumber, options: [], range: <span class="type">NSMakeRange</span>(<span class="number">0</span>, phoneNumber.utf16.<span class="built_in">count</span>))</span><br><span class="line"><span class="keyword">let</span> result = match.<span class="built_in">count</span> &gt; <span class="number">0</span></span><br><span class="line"><span class="built_in">print</span>(result)</span><br><span class="line"><span class="comment">//输出 true</span></span><br></pre></td></tr></table></figure>
-<p>phoneNumber是需要验证的电话号，那么phonePattern就是我们的验证电话号的正则啦，wait！phonePattern这个字符串什么鬼？这就是正则的语法，这些东西<strong>王八的屁股-规定(龟腚)~ 死记硬背没个X子用</strong>，多用自然就记住了<br><br><code>^带表开头</code><br><br><code>$代表结尾</code><br><br><code>\d代表任一数字</code><br><br>由于<code>\d</code>匹配任意一个数字，所以有多少<code>\d</code>就代表多少位数字啦、<br><br>emmmm…这样似乎有点麻烦，如果一百位岂不是要写一百个，当然还有简便写法啦，就是<code>\d{10}</code>，其中{10}代表10位数不能多不能少。<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> phonePattern = <span class="string">"^1\\d&#123;10&#125;$"</span></span><br><span class="line"><span class="comment">// 这样就代表匹配11位数字，开头数字为 1 剩下的 10 位数为任意数字</span></span><br></pre></td></tr></table></figure></p>
-<p>诶？<code>\d</code>是匹配数字那<code>\\d</code>是什么鬼？删掉还报错!<br><code>\代表转义字符啦</code><br>转义字符是什么？就是正则里有些<a href="https://en.wikipedia.org/wiki/Regular_expression#POSIX_basic_and_extended" target="_blank" rel="noopener">特殊的字符</a>(<strong>Metacharacter</strong>)有特殊的含义<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">^$()*+?.[\&#123;|</span><br></pre></td></tr></table></figure></p>
-<p>这些特殊字符在使用前需要使用<code>backslash \</code>来消除歧义<br><br>wiki上如此解释道:<br><br><code>\将下一个字符标记为一个特殊字符（File Format Escape）、或一个原义字符（Identity Escape，有^$()*+?.[\{|共计12个)、或一个向后引用（backreferences）、或一个八进制转义符。例如，“n”匹配字符“n”。“\n”匹配一个换行符。序列“\\”匹配“\”而“\(”则匹配“(”。</code><br>实在记不住也没关系，你只要知道是王八的屁股就好了，使用特殊字符必须前面多加一个<code>\</code>，(<strong><font color="#F3B240">Swift中暂时只发现使用<code>\</code>需加<code>\</code></font></strong>)那么我们就看一下常用的metacharacter</p>
-<table>
-<thead>
-<tr>
-<th>语法</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>.</td>
-<td>匹配除换行符以外的任意字符</td>
-</tr>
-<tr>
-<td>\w</td>
-<td>匹配字母或数字或下划线或汉字</td>
-</tr>
-<tr>
-<td>\s</td>
-<td>匹配任意的空白符</td>
-</tr>
-<tr>
-<td>\d</td>
-<td>匹配数字</td>
-</tr>
-<tr>
-<td>\n</td>
-<td>换行符</td>
-</tr>
-<tr>
-<td>^</td>
-<td>匹配字符串的开始</td>
-</tr>
-<tr>
-<td>$</td>
-<td>匹配字符串的结束</td>
-</tr>
-<tr>
-<td>\W</td>
-<td>匹配任意不是字母，数字，下划线，汉字的字符</td>
-</tr>
-<tr>
-<td>\S</td>
-<td>匹配任意不是空白符的字符</td>
-</tr>
-<tr>
-<td>\D</td>
-<td>匹配任意非数字的字符</td>
-</tr>
-<tr>
-<td>\B</td>
-<td>匹配不是单词开头或结束的位置</td>
-</tr>
-<tr>
-<td>[^x]</td>
-<td>匹配除了x以外的任意字符</td>
-</tr>
-<tr>
-<td>[^aeiou]</td>
-<td>匹配除了aeiou这几个字母以外的任意字符</td>
-</tr>
-</tbody>
-</table>
-<p>那么回到<del>妹纸的电话号</del>正题，电话号有些明显就是错的例如<code>12345678888</code>，好像还没有2开头的电话号，这样吧我们要求电话号是13,14,15,16,17,18开头的，那我们就这样<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">let phonePattern = &quot;^1[345678]\\d&#123;9&#125;$&quot;</span><br></pre></td></tr></table></figure></p>
-<p>可能对于<code>[]</code>你产生了疑惑，这个东西就是用来自定义你想要的限制的范围啊，上面的例子就是在3,4,5,6,7,8中任意选一个，具体解释看<a href="https://en.wikipedia.org/wiki/Regular_expression#POSIX_basic_and_extended" target="_blank" rel="noopener">这里</a></p>
-<h2 id="见面"><a href="#见面" class="headerlink" title="见面"></a>见面</h2><h3 id="正确的名字更加了解"><a href="#正确的名字更加了解" class="headerlink" title="正确的名字更加了解"></a>正确的名字更加了解</h3><p>你见到妹纸，肯定要打招呼，于是该如此<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">let namePattern = &quot;^hi.*[a-z]$&quot;</span><br><span class="line">let nameRegex: NSRegularExpression</span><br><span class="line">do &#123;</span><br><span class="line">try nameRegex = NSRegularExpression(pattern: namePattern, options: .caseInsensitive)</span><br><span class="line">&#125;</span><br><span class="line">let name = &quot;hi! Girl&quot;</span><br><span class="line">let match = nameRegex.matches(in: name, options: [], range: NSMakeRange(0, name.utf16.count))</span><br><span class="line">let result = match.count &gt; 0</span><br><span class="line">print(result)</span><br></pre></td></tr></table></figure></p>
-<p><code>*</code>也是一个metacharacter，不过它代表前面的内容可以重复使用任意次，既然提到<code>*</code>那么我们就来看看类似<code>*</code>这种常用的<strong>限定符</strong><br></p>
-<table>
-<thead>
-<tr>
-<th>语法</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>*</td>
-<td>重复零次或更多次</td>
-</tr>
-<tr>
-<td>+</td>
-<td>重复一次或更多次</td>
-</tr>
-<tr>
-<td>?</td>
-<td>重复零次或一次</td>
-</tr>
-<tr>
-<td>{n}</td>
-<td>重复n次</td>
-</tr>
-<tr>
-<td>{n,}</td>
-<td>重复n次或更多次</td>
-</tr>
-<tr>
-<td>{n,m}</td>
-<td>重复n到m次</td>
-</tr>
-</tbody>
-</table>
-<p>这样对于我们之前提到的{10}就应该很明白了。<br><br><code>[a-z]</code>代表a-z的任意字母<br>如此看来<code>&quot;^hi.*[a-z]$&quot;</code> 的意思就很明显了，也就是说<code>hi，任意个任意字符(except \n)，1个a到z的任意字母</code>，但实际上这样的正则有些冗余，因为<code>.*</code>已经代表了除换行符外的任意个任意字符，所以我们并不需要[a-z]<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">let namePattern = &quot;^hi.*$&quot;</span><br></pre></td></tr></table></figure></p>
-<p>但是如果妹纸告诉你叫她叫<code>123-+？</code>这肯定是不对的，名字不能是数字和标点符号啦，肯定是字母或是中文组成的，由此看来我们的似乎应该如此效验<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">let namePattern = &quot;^hi.&#123;2&#125;[a-z]*$&quot;</span><br></pre></td></tr></table></figure></p>
-<p>这样就namePattern的意思就是<code>hi，然后除换行符外的任意两个字符，然后任意个a-z中的任意字母</code><br>为什么在<code>.</code>后面写<code>{2}//重复两次</code>呢？<code>hi! xxx</code> 因为打招呼写出来需要一个<strong>叹号</strong>一个<strong>空格</strong>，这样好看啊，ahhhh…</p><p><br>当然你也可以试试写成<code>[a-c]</code>，这样就只会匹配abc；如果你写成数字<code>[0-9]</code>也是一样的效果，当然标点符号也适用[?!]，这样就只匹配?!<br></p>
-<h2 id="深入了解"><a href="#深入了解" class="headerlink" title="深入了解"></a>深入了解</h2><h3 id="知道住址。。。嘿嘿嘿"><a href="#知道住址。。。嘿嘿嘿" class="headerlink" title="知道住址。。。嘿嘿嘿~"></a>知道住址。。。嘿嘿嘿~</h3><p>妹纸给了你地址让你去找，可是地址。。。你如何知道是否正确呢，比如第一市第一街（1101）或是第一市第一街1101。那么获取该使用如下方式来匹配这两种地址<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">let addressPattern = &quot;^[\\u4e00-\\u9fa5]&#123;5,25&#125;（?\\d&#123;4&#125;）?$&quot;</span><br><span class="line">let addressRegex: NSRegularExpression</span><br><span class="line">do &#123;</span><br><span class="line">try addressRegex = NSRegularExpression(pattern: addressPattern, options: .caseInsensitive)</span><br><span class="line">&#125;</span><br><span class="line">let address = &quot;第一街第一市（1101）&quot;</span><br><span class="line">let match = addressRegex.matches(in: address, options: [], range: NSMakeRange(0, address.utf16.count))</span><br><span class="line">let result = match.count &gt; 0</span><br><span class="line">print(result)</span><br></pre></td></tr></table></figure></p>
-<p>来看看这个<code>&quot;^[\\u4e00-\\u9fa5]{5,25}（?\\d{4}）?$&quot;</code><br><br><code>\u4e00-\u9fa5</code>这是unicode中汉字的范围，显而易见它的意思是是5-25位汉字然后是能出现1次或0次中文字符的<code>（</code>，接着四位任意数字，最后是能出现1次或0次中文字符的<code>（</code>。<br><br>看起来没什么问题，不幸的是它也可以匹配第一市第一街（1101或是第一市第一街1101）这样“不正确”的格式，为了解决这个问题我们就用到了<code>|</code>。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">let addressPattern = &quot;^[\\u4e00-\\u9fa5]&#123;5,25&#125;（\\d&#123;4&#125;）|[\\u4e00-\\u9fa5]&#123;5,25&#125;\\d&#123;4&#125;$&quot;</span><br></pre></td></tr></table></figure></p>
-<p><code>|</code>作用是满足其中任意一种规则就匹配，满足了某个分支就不会管其他条件了，如果都不满足那么久不匹配。<br><br>也就是说其匹配规则是<code>5-25位汉字（4位任意数字）</code>或 <code>5-25位汉字4位任意数字</code>，这样我们就写出了我们想要的匹配效果。</p>
-<h2 id="完事"><a href="#完事" class="headerlink" title="完事"></a>完事</h2><p>正则强大的地方还有很多，上面只是简单调戏了一下，如您发现调戏不当之处，您的指教是我的荣幸</p>
-<p>如果你想详细了解，那么我推荐看这些奥~<br><br> <a href="http://deerchao.net/tutorials/regex/regex.htm" target="_blank" rel="noopener">正则表达式30分钟入门教程</a><br><br> <a href="https://code.tutsplus.com/tutorials/8-regular-expressions-you-should-know--net-6149" target="_blank" rel="noopener">8 Regular Expressions You Should Know</a><br><br> <a href="https://en.wikipedia.org/wiki/Regular_expression" target="_blank" rel="noopener">Wikipedia 的正则介绍</a><br><br> <a href="https://docs.microsoft.com/zh-cn/dotnet/standard/base-types/regular-expressions" target="_blank" rel="noopener">微软的正则表达</a><br><br> <a href="https://baike.baidu.com/item/正则表达式/1700215" target="_blank" rel="noopener">百度的正则介绍</a></p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -674,143 +449,19 @@
   </article>
 
 
-    
-      
 
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/23/Macos卸载pkg/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MorningStar">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Inception">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/03/23/Macos卸载pkg/" itemprop="url">Macos卸载pkg</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-23T17:20:38+08:00">2018-03-23</time>
-            
-
-            
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="对于pkg的一点认知"><a href="#对于pkg的一点认知" class="headerlink" title="对于pkg的一点认知"></a>对于pkg的一点认知</h3><p>mac os上很常见的安装包，pkg其实有点类似于windows的rar文件，把文件压缩在其中。当你安装时，会把压缩在pkg中的文件解压并放在指定路径下，赋予某些操作权限。但是这种文件安装后并不像.app文件可以在Application文件夹中找到，自身也很少带有uninstall这种东西，通常会造成你的mac系统有一些冗余而不知道如何删除。此文正是对于删除pkg的方法作介绍来搞定苦逼的安装，个人使用瞎tm写，如有错误或扩展之处，荣幸您能为我指点。</p>
-<p>打开Terminal/iTerm, 输入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pkgutil --pkgs</span><br></pre></td></tr></table></figure>
-<p>会发现有这样的输出，图片我只截取了一部分，我这的输出有很多的，这些就是你使用pkg安装的软件，当然有些是系统的<br><img src="https://user-gold-cdn.xitu.io/2018/3/23/16250e9c2d6c2e88?w=1294&amp;h=828&amp;f=png&amp;s=1739219" alt=""><br>你也可以打开Finder 使用快捷键shift + cmd + G 会出现Go to the folder 提示窗，然后输入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/Library/Receipts</span><br></pre></td></tr></table></figure></p>
-<p>可以看到一个名为<code>InstallHistory.plist</code>的文件打开里面你的安装记录</p>
-<p>注意！！ 如果把lsbom返回的list直接传递给rm删除的话，一定要注意lsbom返回的文件路径，他是以根目录为工作目录的。所以在传递给rm删除文件之前，一定要切换工作目录。<br>lsbom -fls  /Library/Receipts/some_app.pkg/Contents/Archive.bom | (cd /; sudo xargs rm</p>
-
-          
-        
+    <div class="post-spread">
       
     </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
   </div>
-  
-  
-  
-  </article>
-
-
-    
-  </section>
-
-  
 
 
           </div>
           
+
+  
+
+
 
         </div>
         
@@ -831,8 +482,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -877,6 +537,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduce"><span class="nav-number">1.</span> <span class="nav-text">Introduce</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Note"><span class="nav-number">1.0.0.1.</span> <span class="nav-text">Note</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#洽谈"><span class="nav-number">2.</span> <span class="nav-text">洽谈</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Note-1"><span class="nav-number">2.1.</span> <span class="nav-text">Note</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#交换联系方式"><span class="nav-number">3.</span> <span class="nav-text">交换联系方式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Note-2"><span class="nav-number">3.1.</span> <span class="nav-text">Note</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#试探"><span class="nav-number">4.</span> <span class="nav-text">试探</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#电话联系（远程包）"><span class="nav-number">5.</span> <span class="nav-text">电话联系（远程包）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#学习链接："><span class="nav-number">5.1.</span> <span class="nav-text">学习链接：</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -1004,6 +680,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.0.6"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.0.6"></script>
+
+
 
   
 
