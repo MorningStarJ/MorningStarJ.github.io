@@ -99,23 +99,24 @@
 
 
 
-  <meta name="description" content="Talk is cheap, show me the code">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Inception">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="CGD 的简述GCD 全称 Grand Central Dispatch。简单来说就是 Apple 对于优化应用程序以及支持多核处理器所开发的多核编程的最新解决方案。本文主要对于开发中常用的进行简述，不会针对底层解析，想研究底层请看这里。 本文示例均采用 Swift 4 实现。Swift 3 以前在开发中使用 GCD 不是太友好 — 由于它的编程风格接近 C，与 Swift style 差别很大，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="常用的 GCD">
+<meta property="og:url" content="http://yoursite.com/2018/05/01/关于 GCD/index.html">
 <meta property="og:site_name" content="Inception">
-<meta property="og:description" content="Talk is cheap, show me the code">
+<meta property="og:description" content="CGD 的简述GCD 全称 Grand Central Dispatch。简单来说就是 Apple 对于优化应用程序以及支持多核处理器所开发的多核编程的最新解决方案。本文主要对于开发中常用的进行简述，不会针对底层解析，想研究底层请看这里。 本文示例均采用 Swift 4 实现。Swift 3 以前在开发中使用 GCD 不是太友好 — 由于它的编程风格接近 C，与 Swift style 差别很大，">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-09-07T06:58:30.166Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Inception">
-<meta name="twitter:description" content="Talk is cheap, show me the code">
+<meta name="twitter:title" content="常用的 GCD">
+<meta name="twitter:description" content="CGD 的简述GCD 全称 Grand Central Dispatch。简单来说就是 Apple 对于优化应用程序以及支持多核处理器所开发的多核编程的最新解决方案。本文主要对于开发中常用的进行简述，不会针对底层解析，想研究底层请看这里。 本文示例均采用 Swift 4 实现。Swift 3 以前在开发中使用 GCD 不是太友好 — 由于它的编程风格接近 C，与 Swift style 差别很大，">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/05/01/关于 GCD/"/>
 
 
 
@@ -125,7 +126,7 @@
   };
 </script>
 
-  <title>Inception</title>
+  <title>常用的 GCD | Inception</title>
   
 
 
@@ -172,8 +173,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -258,9 +258,9 @@
           
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -292,9 +292,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/05/01/关于 GCD/" itemprop="url">常用的 GCD</a></h1>
+          <h1 class="post-title" itemprop="name headline">常用的 GCD</h1>
         
 
         <div class="post-meta">
@@ -343,9 +341,7 @@
       
 
       
-        
-          
-            <h2 id="CGD-的简述"><a href="#CGD-的简述" class="headerlink" title="CGD 的简述"></a>CGD 的简述</h2><p>GCD 全称 <a href="https://en.wikipedia.org/wiki/Grand_Central_Dispatch" target="_blank" rel="noopener">Grand Central Dispatch</a>。<br>简单来说就是 Apple 对于优化应用程序以及支持多核处理器所开发的多核编程的最新解决方案。本文主要对于开发中常用的进行简述，不会针对底层解析，想研究底层请看<a href="https://apple.github.io/swift-corelibs-libdispatch/" target="_blank" rel="noopener">这里</a>。</p>
+        <h2 id="CGD-的简述"><a href="#CGD-的简述" class="headerlink" title="CGD 的简述"></a>CGD 的简述</h2><p>GCD 全称 <a href="https://en.wikipedia.org/wiki/Grand_Central_Dispatch" target="_blank" rel="noopener">Grand Central Dispatch</a>。<br>简单来说就是 Apple 对于优化应用程序以及支持多核处理器所开发的多核编程的最新解决方案。本文主要对于开发中常用的进行简述，不会针对底层解析，想研究底层请看<a href="https://apple.github.io/swift-corelibs-libdispatch/" target="_blank" rel="noopener">这里</a>。</p>
 <p>本文示例均采用 Swift 4 实现。Swift 3 以前在开发中使用 GCD 不是太友好 — 由于它的编程风格接近 C，与 Swift style 差别很大，API 难记难用，即使在 Objective-C 中使用也不太方便。这也是很多开发者都使用 NSOperationQueue 而避免 GCD 的主要原因。</p>
 <p>Swift 3 中 Apple 采用了全新的 Swift style 重写了 GCD，这使 GCD 在开发中的使用与之前完全截然不同，轻松上手，好记好用。否则，也不会有这篇文章了。</p>
 <h2 id="GCD-的核心"><a href="#GCD-的核心" class="headerlink" title="GCD 的核心"></a>GCD 的核心</h2><h3 id="任务及其执行方式"><a href="#任务及其执行方式" class="headerlink" title="任务及其执行方式"></a>任务及其执行方式</h3><p>任务就是线程中要执行的代码，它可以随同队列的创建一起被创建，然后将这个任务添加指定的执行方式（<strong><em>同步执行</em></strong> 和<strong><em>异步执行</em></strong>）。</p>
@@ -450,8 +446,6 @@
 <h3 id="系统提供的现有队列"><a href="#系统提供的现有队列" class="headerlink" title="系统提供的现有队列"></a>系统提供的现有队列</h3><p>到这里，我相信串行并行同步异步就应该完全了解了。<br>但是上述都属于自定义队列，那就来说说开发中常用的现有队列。<br>GCD 中的队列有如下几种：<br>主线程队列（<code>DispatchQueue.main</code>）<br>全局并发队列（<code>DispatchQueue.global()</code>）<br>自定义队列<br>队列组（<code>DispatchGroup</code>）</p>
 <p>写此文时借鉴了如下资料，更多关于 GCD 的资料请看这里<br><a href="https://www.raywenderlich.com/5370-grand-central-dispatch-tutorial-for-swift-4-part-1-2" target="_blank" rel="noopener">Grand Central Dispatch Tutorial for Swift 4</a><br><a href="https://www.appcoda.com/grand-central-dispatch" target="_blank" rel="noopener">Grand Central Dispatch (GCD) and Dispatch Queues in Swift 3</a></p>
 
-          
-        
       
     </div>
 
@@ -471,401 +465,28 @@
       
 
       
-
-      
-
       
       
-        <div class="post-eof"></div>
+
       
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/21/偶然发现的POST请求参数问题/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MorningStar">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Inception">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/04/21/偶然发现的POST请求参数问题/" itemprop="url">偶然发现的POST请求参数问题</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-21T17:20:14+08:00">2018-04-21</time>
+              <a href="/2018/04/21/偶然发现的POST请求参数问题/" rel="next" title="偶然发现的POST请求参数问题">
+                <i class="fa fa-chevron-left"></i> 偶然发现的POST请求参数问题
+              </a>
             
-
-            
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>Swift 哦~<br>最近发现一个较为有趣的事情，笔者渣渣，勿喷啦~ 还是对网络这部分了解不深，写这篇文章主要是记录成长过程以及采坑记录 </p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> request = <span class="type">URLRequest</span>(url: <span class="type">URL</span>)</span><br><span class="line">request.httpMethod = <span class="string">"POST"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> request.value(forHTTPHeaderField: <span class="string">"Content-Type"</span>) == <span class="literal">nil</span> &#123;</span><br><span class="line">    request.setValue(<span class="string">"application/json"</span>, forHTTPHeaderField: <span class="string">"Content-Type"</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> parameters = [<span class="string">"key"</span>: <span class="string">"value"</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> <span class="keyword">let</span> jsonData = <span class="keyword">try</span>? <span class="type">JSONSerialization</span>.data(withJSONObject: parameters, options: .prettyPrinted) &#123;</span><br><span class="line">    request.httpBody = jsonData</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这样的方式一般是把参数以JSON编码方式转化成<code>Data</code>类型赋值给<code>httpBody</code>编入到request中。<br>这种方式 后端取值的时候（我司后端开发语言是Java）就需要使用<code>RequestBody</code>。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/04/21/偶然发现的POST请求参数问题/#more" rel="contents">
-              Read more &raquo;
-            </a>
           </div>
-          <!--/noindex-->
-        
-      
-    </div>
 
-    
+          <span class="post-nav-divider"></span>
 
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/20/Growing up Go（1）/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MorningStar">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Inception">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/04/20/Growing up Go（1）/" itemprop="url">Growing up Go（1）</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+          <div class="post-nav-prev post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-20T17:51:14+08:00">2018-04-20</time>
-            
-
-            
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="Introduce"><a href="#Introduce" class="headerlink" title="Introduce"></a>Introduce</h2><p>先安装~<br>我是Mac os 系统，而且本人比较懒肯定用 <a href="https://brew.sh/" target="_blank" rel="noopener">Homebrew</a> 啦~<br><code>brew install go</code><br>安装完成后将其添加到<code>.zshrc</code>文件(zsh模式，其他系统、shell模式自行解决)<br><code>vim ~/.zshrc</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#别问我这个命令哪来的，homebrew 安装完给的</span><br><span class="line">export PATH=$PATH:/usr/local/opt/go/libexec/bin</span><br><span class="line">#&#123;WorkSpace Path&#125;代表你的工作空间目录</span><br><span class="line">export GOPATH=&#123;WorkSpace Path&#125; </span><br><span class="line">export PATH=$PATH:$GOPATH/bin</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/04/20/Growing up Go（1）/#more" rel="contents">
-              Read more &raquo;
-            </a>
           </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/26/调教正则’妹纸‘/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MorningStar">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Inception">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/03/26/调教正则’妹纸‘/" itemprop="url">调教正则’妹纸‘~</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-26T18:14:26+08:00">2018-03-26</time>
-            
-
-            
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          <h3 id="反正关于正则的讨论那么多了也不差我一个多分享下在Swift-4-0-中使用正则"><a href="#反正关于正则的讨论那么多了也不差我一个多分享下在Swift-4-0-中使用正则" class="headerlink" title="反正关于正则的讨论那么多了也不差我一个多分享下在Swift 4.0 中使用正则~"></a>反正关于正则的讨论那么多了也不差我一个多分享下在Swift 4.0 中使用正则~</h3><h3 id="听人介绍"><a href="#听人介绍" class="headerlink" title="听人介绍"></a>听人介绍</h3><h4 id="正则？WTF？"><a href="#正则？WTF？" class="headerlink" title="正则？WTF？"></a>正则？WTF？</h4><p>术语点，文本匹配（各语言通用）的规则工具，精准描述你对文本的需求.</p>
-<p>例子解释，比如说你给某App做登录功能，<br>要求密码是6到18位并且只能是数字英文，那么实现这个要求的东西就是正则（当然有别的办法，本文主要说正则）</p>
-<p>ps:例子均以<font color="#F3B240">Swift 4.0</font>实现，说的简单写上去语法容易忘，贼唧(儿)难记难懂</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/03/26/调教正则’妹纸‘/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -875,155 +496,19 @@
   </article>
 
 
-    
-      
 
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/23/Macos卸载pkg/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MorningStar">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Inception">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/03/23/Macos卸载pkg/" itemprop="url">Mac os上的pkg</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-23T17:20:38+08:00">2018-03-23</time>
-            
-
-            
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="委托资料"><a href="#委托资料" class="headerlink" title="委托资料"></a>委托资料</h3><p><code>mac os</code>上很常见的安装包，<code>pkg</code>其实有点类似于<code>windows</code>的<code>rar</code>文件，把文件压缩在其中。当你安装时，会把压缩在<code>pkg</code>中的文件解压并放在指定路径下，赋予某些操作权限。但是这种文件安装后并不像<code>.app</code>文件可以在<code>Application</code>文件夹中找到，自身也很少带有<code>uninstall</code>这种东西，通常会造成你的<code>mac</code>系统有一些冗余而不知道如何删除。此文正是对于删除<code>pkg</code>的方法作介以此搞定这种坑爹的安装，个人使用瞎tm写，如有错误或扩展之处，荣幸您能为我指点。</p>
-<h3 id="调查"><a href="#调查" class="headerlink" title="调查"></a>调查</h3><p>打开<code>Terminal/iTerm</code>, 输入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pkgutil --pkgs</span><br></pre></td></tr></table></figure>
-<p>会发现有这样的输出，图片我只截取了一部分，我这的输出有很多的，这些就是你使用<code>pkg</code>安装的软件，当然有些是系统的<br><img src="https://user-gold-cdn.xitu.io/2018/3/23/16250e9c2d6c2e88?w=1294&amp;h=828&amp;f=png&amp;s=1739219" alt=""><br>你也可以打开Finder 使用快捷键shift + cmd + G 会出现Go to the folder 提示窗，然后输入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/Library/Receipts</span><br></pre></td></tr></table></figure>
-<p>可以看到一个名为 <code>InstallHistory.plist</code> 的文件打开里面你的安装记录</p>
-<p>或是到<code>/private/var/db/receipts</code>查看，当然都是隐藏文件</p>
-<h3 id="Under-arrest"><a href="#Under-arrest" class="headerlink" title="Under arrest"></a>Under arrest</h3><h5 id="Plan-A"><a href="#Plan-A" class="headerlink" title="Plan A"></a>Plan A</h5><p>找到<code>pkg</code>的安装清单，.bom文件，使用类似以下命令删除：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">lsbom -fls  /Library/Receipts/some_app.pkg/Contents/Archive.bom </span><br><span class="line">(cd /; sudo xargs rm</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>注意！！！如果使用<code>lsbom</code>的命令时，一定要把工作路径切换成根路径。<br>当心啊，如果删错东西后果自负啊😂这是个高危方案！！！这个东西不太好搞可以参考<a href="http://hints.macworld.com" target="_blank" rel="noopener">这里</a></p>
-</blockquote>
-<h5 id="Plan-B"><a href="#Plan-B" class="headerlink" title="Plan B"></a>Plan B</h5><p>安装 <a href="https://github.com/bgandon/pkg-uninstall" target="_blank" rel="noopener">pkg-uninstall</a>，<br>或是安装 <a href="https://github.com/mpapis/pkg_uninstaller" target="_blank" rel="noopener">pkg_uninstaller</a><br>安装好后一键卸载</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pkg-uninstall &lt;package-id&gt;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p><strong>Note</strong><br>Github上使用说明非常详细，这里就不多做介绍了</p>
-</blockquote>
-<h5 id="Plan-C"><a href="#Plan-C" class="headerlink" title="Plan C"></a>Plan C</h5><p><code>GUI</code>版的pkg删除工具，非常便捷，一键操作，<a href="http://hints.macworld.com" target="_blank" rel="noopener">http://hints.macworld.com</a></p>
-
-          
-        
+    <div class="post-spread">
       
     </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
   </div>
-  
-  
-  
-  </article>
-
-
-    
-  </section>
-
-  
 
 
           </div>
           
+
+  
+
+
 
         </div>
         
@@ -1044,8 +529,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -1209,6 +703,22 @@
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#CGD-的简述"><span class="nav-number">1.</span> <span class="nav-text">CGD 的简述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GCD-的核心"><span class="nav-number">2.</span> <span class="nav-text">GCD 的核心</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#任务及其执行方式"><span class="nav-number">2.1.</span> <span class="nav-text">任务及其执行方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#队列"><span class="nav-number">2.2.</span> <span class="nav-text">队列</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#队列以及执行方式的组合使用"><span class="nav-number">3.</span> <span class="nav-text">队列以及执行方式的组合使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Dispatch-Queue"><span class="nav-number">3.1.</span> <span class="nav-text">Dispatch Queue</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#串行队列（Serial-Dispatch-Queue）"><span class="nav-number">3.2.</span> <span class="nav-text">串行队列（Serial Dispatch Queue）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#串行队列同步执行"><span class="nav-number">3.2.1.</span> <span class="nav-text">串行队列同步执行</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#串行队列异步执行"><span class="nav-number">3.2.2.</span> <span class="nav-text">串行队列异步执行</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DispatchQoS"><span class="nav-number">3.3.</span> <span class="nav-text">DispatchQoS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#并行队列（Concurrent-Dispatch-Queue）"><span class="nav-number">3.4.</span> <span class="nav-text">并行队列（Concurrent Dispatch Queue）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#并行队列异步执行"><span class="nav-number">3.4.1.</span> <span class="nav-text">并行队列异步执行</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#并行队列同步执行"><span class="nav-number">3.4.2.</span> <span class="nav-text">并行队列同步执行</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#系统提供的现有队列"><span class="nav-number">3.5.</span> <span class="nav-text">系统提供的现有队列</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
 
@@ -1342,6 +852,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.0.6"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.0.6"></script>
+
+
 
   
 

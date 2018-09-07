@@ -106,12 +106,12 @@
 <meta property="og:site_name" content="Inception">
 <meta property="og:description" content="Introduce先安装~我是Mac os 系统，而且本人比较懒肯定用 Homebrew 啦~brew install go安装完成后将其添加到.zshrc文件(zsh模式，其他系统、shell模式自行解决)vim ~/.zshrc 12345#别问我这个命令哪来的，homebrew 安装完给的export PATH=$PATH:/usr/local/opt/go/libexec/bin#&amp;#12">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/2018/04/20/Growing%20up%20Go（1）/media/15242152439252/QQ20180420-150115@2x.png">
-<meta property="og:updated_time" content="2018-04-20T10:14:26.000Z">
+<meta property="og:image" content="http://yoursite.com/2018/04/20/Growing%20up%20Go（1）/hello_test_go.png">
+<meta property="og:updated_time" content="2018-09-05T06:26:25.494Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Growing up Go（1）">
 <meta name="twitter:description" content="Introduce先安装~我是Mac os 系统，而且本人比较懒肯定用 Homebrew 啦~brew install go安装完成后将其添加到.zshrc文件(zsh模式，其他系统、shell模式自行解决)vim ~/.zshrc 12345#别问我这个命令哪来的，homebrew 安装完给的export PATH=$PATH:/usr/local/opt/go/libexec/bin#&amp;#12">
-<meta name="twitter:image" content="http://yoursite.com/2018/04/20/Growing%20up%20Go（1）/media/15242152439252/QQ20180420-150115@2x.png">
+<meta name="twitter:image" content="http://yoursite.com/2018/04/20/Growing%20up%20Go（1）/hello_test_go.png">
 
 
 
@@ -347,7 +347,9 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#别问我这个命令哪来的，homebrew 安装完给的</span><br><span class="line">export PATH=$PATH:/usr/local/opt/go/libexec/bin</span><br><span class="line">#&#123;WorkSpace Path&#125;代表你的工作空间目录</span><br><span class="line">export GOPATH=&#123;WorkSpace Path&#125; </span><br><span class="line">export PATH=$PATH:$GOPATH/bin</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
 <p>GOPATH 是一个环境变量，这个环境变量是你工作空间的位置，主要作用就是在执行go 命令的时候方便很多</p>
-<h5 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h5><p>在工作目录下创建三个子目录（go约定的为啥我也不造）</p>
+<blockquote>
+<p><strong>Note</strong><br>在工作目录下创建三个子目录（go约定的为啥我也不造）</p>
+</blockquote>
 <table>
 <thead>
 <tr>
@@ -380,16 +382,20 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Hello //也可 $GOPATH/bin/Hello</span><br><span class="line">// Hello, world.</span><br></pre></td></tr></table></figure>
 <p>这时也就明白了编译出来后src下目录的名字才是包名。</p>
 <p>我们的目录结构是这样的<code>$GOPATH/src/Hello/hello.go</code>，<code>$GOPATH</code>是工作控件目录，<code>src</code> 放代码的目录，<code>Hello</code> 是子目录也就是应用包名称，<code>hello.go</code>是go文件</p>
-<h3 id="Note-1"><a href="#Note-1" class="headerlink" title="Note"></a>Note</h3><p>Go 有很多开发工具，例如我们刚才直接使用terminal进行开发，我个人使用的<code>JetBrains</code>家的 <code>GoLand</code>，推荐几个（排名顺序不分先后）<br><code>Sublime Text、 Visual Studio Code、LiteIDE、Atom、Vim、IntelliJ IDEA</code></p>
+<blockquote>
+<p><strong>Note</strong><br>Go 有很多开发工具，例如我们刚才直接使用terminal进行开发，我个人使用的<code>JetBrains</code>家的 <code>GoLand</code>，推荐几个（排名顺序不分先后）<br><code>Sublime Text、 Visual Studio Code、LiteIDE、Atom、Vim、IntelliJ IDEA</code></p>
+</blockquote>
 <h2 id="交换联系方式"><a href="#交换联系方式" class="headerlink" title="交换联系方式"></a>交换联系方式</h2><p>在<code>$GOPATH/src/Hello</code>目录下创建<code>stringutil</code>文件夹<br>创建<code>reverse.go</code>文件</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">// stringutil 包含有用于处理字符串的工具函数。</span><br><span class="line">package stringutil</span><br><span class="line"></span><br><span class="line">// Reverse 将其实参字符串以符文为单位左右反转。</span><br><span class="line">func Reverse(s string) string &#123;</span><br><span class="line">	r := []rune(s)</span><br><span class="line">	for i, j := 0, len(r)-1; i &lt; len(r)/2; i, j = i+1, j-1 &#123;</span><br><span class="line">		r[i], r[j] = r[j], r[i]</span><br><span class="line">	&#125;</span><br><span class="line">	return string(r)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><code>package</code>导入的应是go文件的目录（也就是路径的最有一个元素），例如我们现在的文件目录是<code>$GOPATH/src/Hello/stringutil</code>，那么我们要导入的就是<code>stringutil</code><br><a>可以执行命令必须使用<code>package main</code></a><br>如何在<code>hello.go</code>中使用这个<code>Reverse</code>函数呢</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">package main</span><br><span class="line">import (</span><br><span class="line">	&quot;fmt&quot;</span><br><span class="line">	&quot;awesomeProject/stringutil&quot;</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">func main() &#123;</span><br><span class="line">	fmt.Printf(stringutil.Reverse(&quot;!oG ,olleH&quot;))</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$ cd $GOPATH/src/Hello</span><br><span class="line">$ go install</span><br><span class="line"></span><br><span class="line">$ hello</span><br><span class="line">// Hello, Go!</span><br></pre></td></tr></table></figure>
 <p>当安装hello程序时，由于stringuntil是依赖，也会被自动安装，运行一下就会看到结果了</p>
-<h3 id="Note-2"><a href="#Note-2" class="headerlink" title="Note"></a>Note</h3><p>一切就绪后，当前目录的层级结构是这样的</p>
+<blockquote>
+<p><strong>Note</strong><br>一切就绪后，当前目录的层级结构是这样的</p>
+</blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">bin/</span><br><span class="line">	hello # 可执行命令</span><br><span class="line">pkg/</span><br><span class="line">	darwin_amd64/ # 这里会反映出你的操作系统和架构</span><br><span class="line">		Hello/</span><br><span class="line">			stringutil.a # 包对象</span><br><span class="line">src/</span><br><span class="line">	Hello</span><br><span class="line">		hello.go # 命令源码</span><br><span class="line">			</span><br><span class="line">		stringutil/</span><br><span class="line">			reverse.go # 包源码</span><br></pre></td></tr></table></figure>
 <p><code>go install</code>会将<code>stringutil.a</code>对象放到<code>pkg/darwin_amd64</code>目录。</p>
-<h2 id="试探"><a href="#试探" class="headerlink" title="试探"></a>试探</h2><p>Go 的测试很轻量也很简单，<code>go test</code>和<code>testing</code>包构成。首先我们创建一个test目录，创建一个名字以<code>_test.go</code>结尾的。<br><img src="media/15242152439252/QQ20180420-150115@2x.png" alt="QQ20180420-150115@2x"><br>创建好后应该是这样的</p>
+<h2 id="试探"><a href="#试探" class="headerlink" title="试探"></a>试探</h2><p>Go 的测试很轻量也很简单，<code>go test</code>和<code>testing</code>包构成。首先我们创建一个test目录，创建一个名字以<code>_test.go</code>结尾的。<br><img src="/2018/04/20/Growing up Go（1）/hello_test_go.png" alt=""><br>创建好后应该是这样的</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> test</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span>(</span><br><span class="line">	<span class="string">"testing"</span></span><br><span class="line">	<span class="string">"awesomeProject/stringutil"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">TestReverse</span><span class="params">(t *testing.T)</span></span> &#123;</span><br><span class="line">	cases := []<span class="keyword">struct</span> &#123;</span><br><span class="line">		in, want <span class="keyword">string</span></span><br><span class="line">	&#125;&#123;</span><br><span class="line">		&#123;<span class="string">"Hello, world"</span>, <span class="string">"dlrow ,olleH"</span>&#125;,</span><br><span class="line">		&#123;<span class="string">"Hello, 世界"</span>, <span class="string">"界世 ,olleH"</span>&#125;,</span><br><span class="line">		&#123;<span class="string">""</span>, <span class="string">""</span>&#125;,</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span> _, c := <span class="keyword">range</span> cases &#123;</span><br><span class="line">		got := stringutil.Reverse(c.in)</span><br><span class="line">		<span class="keyword">if</span> got != c.want &#123;</span><br><span class="line">			t.Errorf(<span class="string">"Reverse(%q) == %q, want %q"</span>, c.in, got, c.want)</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>terminal 中<code>go test</code>走一走,输出结果</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">PASS</span><br><span class="line">ok      Hello/test     0.006s</span><br></pre></td></tr></table></figure>
@@ -397,7 +403,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">go get github.com/golang/example/hello</span><br><span class="line">$GOPATH/bin/hello</span><br><span class="line">// Hello, Go examples!</span><br></pre></td></tr></table></figure>
 <p>使用时直接导入就好`import “github.com/golang/example/stringutil”</p>
 <p>First step就到这里啦~ 个人愚见，瞎写写，如有问题欢迎指出啊~~~ 以后随着学习还会陆续更新哒~ </p>
-<h3 id="学习链接："><a href="#学习链接：" class="headerlink" title="学习链接："></a>学习链接：</h3><p><a href="https://go-zh.org/doc/" target="_blank" rel="noopener">https://go-zh.org/doc/</a></p>
+<h2 id="学习链接："><a href="#学习链接：" class="headerlink" title="学习链接："></a>学习链接：</h2><p><a href="https://go-zh.org/doc/" target="_blank" rel="noopener">https://go-zh.org/doc/</a></p>
 <p><a href="https://github.com/astaxie/build-web-application-with-golang/blob/master/zh/preface.md" target="_blank" rel="noopener">https://github.com/astaxie/build-web-application-with-golang/blob/master/zh/preface.md</a></p>
 
       
@@ -512,7 +518,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">4</span>
+                    <span class="site-state-item-count">5</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -670,7 +676,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduce"><span class="nav-number">1.</span> <span class="nav-text">Introduce</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Note"><span class="nav-number">1.0.0.1.</span> <span class="nav-text">Note</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#洽谈"><span class="nav-number">2.</span> <span class="nav-text">洽谈</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Note-1"><span class="nav-number">2.1.</span> <span class="nav-text">Note</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#交换联系方式"><span class="nav-number">3.</span> <span class="nav-text">交换联系方式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Note-2"><span class="nav-number">3.1.</span> <span class="nav-text">Note</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#试探"><span class="nav-number">4.</span> <span class="nav-text">试探</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#电话联系（远程包）"><span class="nav-number">5.</span> <span class="nav-text">电话联系（远程包）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#学习链接："><span class="nav-number">5.1.</span> <span class="nav-text">学习链接：</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduce"><span class="nav-number">1.</span> <span class="nav-text">Introduce</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#洽谈"><span class="nav-number">2.</span> <span class="nav-text">洽谈</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#交换联系方式"><span class="nav-number">3.</span> <span class="nav-text">交换联系方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#试探"><span class="nav-number">4.</span> <span class="nav-text">试探</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#电话联系（远程包）"><span class="nav-number">5.</span> <span class="nav-text">电话联系（远程包）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#学习链接："><span class="nav-number">6.</span> <span class="nav-text">学习链接：</span></a></li></ol></div>
             
 
           </div>

@@ -107,7 +107,7 @@
 <meta property="og:description" content="委托资料mac os上很常见的安装包，pkg其实有点类似于windows的rar文件，把文件压缩在其中。当你安装时，会把压缩在pkg中的文件解压并放在指定路径下，赋予某些操作权限。但是这种文件安装后并不像.app文件可以在Application文件夹中找到，自身也很少带有uninstall这种东西，通常会造成你的mac系统有一些冗余而不知道如何删除。此文正是对于删除pkg的方法作介以此搞定这种坑爹">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://user-gold-cdn.xitu.io/2018/3/23/16250e9c2d6c2e88?w=1294&h=828&f=png&s=1739219">
-<meta property="og:updated_time" content="2018-09-04T08:26:17.206Z">
+<meta property="og:updated_time" content="2018-09-04T13:31:36.467Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mac os上的pkg">
 <meta name="twitter:description" content="委托资料mac os上很常见的安装包，pkg其实有点类似于windows的rar文件，把文件压缩在其中。当你安装时，会把压缩在pkg中的文件解压并放在指定路径下，赋予某些操作权限。但是这种文件安装后并不像.app文件可以在Application文件夹中找到，自身也很少带有uninstall这种东西，通常会造成你的mac系统有一些冗余而不知道如何删除。此文正是对于删除pkg的方法作介以此搞定这种坑爹">
@@ -352,11 +352,14 @@
 <p>或是到<code>/private/var/db/receipts</code>查看，当然都是隐藏文件</p>
 <h3 id="Under-arrest"><a href="#Under-arrest" class="headerlink" title="Under arrest"></a>Under arrest</h3><h5 id="Plan-A"><a href="#Plan-A" class="headerlink" title="Plan A"></a>Plan A</h5><p>找到<code>pkg</code>的安装清单，.bom文件，使用类似以下命令删除：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">lsbom -fls  /Library/Receipts/some_app.pkg/Contents/Archive.bom </span><br><span class="line">(cd /; sudo xargs rm</span><br></pre></td></tr></table></figure>
-<p><strong>注意！！！如果使用<code>lsbom</code>的命令时，一定要把工作路径切换成根路径。<br>当心啊，如果删错东西后果自负啊😂这是个高危方案！！！这个东西不太好搞可以参考<a href="http://hints.macworld.com" target="_blank" rel="noopener">这里</a>
-</strong></p>
+<blockquote>
+<p>注意！！！如果使用<code>lsbom</code>的命令时，一定要把工作路径切换成根路径。<br>当心啊，如果删错东西后果自负啊😂这是个高危方案！！！这个东西不太好搞可以参考<a href="http://hints.macworld.com" target="_blank" rel="noopener">这里</a></p>
+</blockquote>
 <h5 id="Plan-B"><a href="#Plan-B" class="headerlink" title="Plan B"></a>Plan B</h5><p>安装 <a href="https://github.com/bgandon/pkg-uninstall" target="_blank" rel="noopener">pkg-uninstall</a>，<br>或是安装 <a href="https://github.com/mpapis/pkg_uninstaller" target="_blank" rel="noopener">pkg_uninstaller</a><br>安装好后一键卸载</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pkg-uninstall &lt;package-id&gt;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Note: Github上使用说明非常详细，这里就不多做介绍了</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>Note</strong><br>Github上使用说明非常详细，这里就不多做介绍了</p>
+</blockquote>
 <h5 id="Plan-C"><a href="#Plan-C" class="headerlink" title="Plan C"></a>Plan C</h5><p><code>GUI</code>版的pkg删除工具，非常便捷，一键操作，<a href="http://hints.macworld.com" target="_blank" rel="noopener">http://hints.macworld.com</a></p>
 
       
@@ -467,7 +470,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">4</span>
+                    <span class="site-state-item-count">5</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
