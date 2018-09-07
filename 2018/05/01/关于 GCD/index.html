@@ -106,7 +106,7 @@
 <meta property="og:site_name" content="Inception">
 <meta property="og:description" content="CGD 的简述GCD 全称 Grand Central Dispatch。简单来说就是 Apple 对于优化应用程序以及支持多核处理器所开发的多核编程的最新解决方案。本文主要对于开发中常用的进行简述，不会针对底层解析，想研究底层请看这里。 本文示例均采用 Swift 4 实现。Swift 3 以前在开发中使用 GCD 不是太友好 — 由于它的编程风格接近 C，与 Swift style 差别很大，">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-07T06:58:30.166Z">
+<meta property="og:updated_time" content="2018-09-07T10:52:00.793Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="常用的 GCD">
 <meta name="twitter:description" content="CGD 的简述GCD 全称 Grand Central Dispatch。简单来说就是 Apple 对于优化应用程序以及支持多核处理器所开发的多核编程的最新解决方案。本文主要对于开发中常用的进行简述，不会针对底层解析，想研究底层请看这里。 本文示例均采用 Swift 4 实现。Swift 3 以前在开发中使用 GCD 不是太友好 — 由于它的编程风格接近 C，与 Swift style 差别很大，">
@@ -343,7 +343,7 @@
       
         <h2 id="CGD-的简述"><a href="#CGD-的简述" class="headerlink" title="CGD 的简述"></a>CGD 的简述</h2><p>GCD 全称 <a href="https://en.wikipedia.org/wiki/Grand_Central_Dispatch" target="_blank" rel="noopener">Grand Central Dispatch</a>。<br>简单来说就是 Apple 对于优化应用程序以及支持多核处理器所开发的多核编程的最新解决方案。本文主要对于开发中常用的进行简述，不会针对底层解析，想研究底层请看<a href="https://apple.github.io/swift-corelibs-libdispatch/" target="_blank" rel="noopener">这里</a>。</p>
 <p>本文示例均采用 Swift 4 实现。Swift 3 以前在开发中使用 GCD 不是太友好 — 由于它的编程风格接近 C，与 Swift style 差别很大，API 难记难用，即使在 Objective-C 中使用也不太方便。这也是很多开发者都使用 NSOperationQueue 而避免 GCD 的主要原因。</p>
-<p>Swift 3 中 Apple 采用了全新的 Swift style 重写了 GCD，这使 GCD 在开发中的使用与之前完全截然不同，轻松上手，好记好用。否则，也不会有这篇文章了。</p>
+<p>Swift 3 中 Apple 采用了全新的 Swift style 重写了 GCD，这使 GCD 在开发中的使用与之前完全截然不同，轻松上手，好记好用。否则，也不会有这篇文章了。<br><a id="more"></a></p>
 <h2 id="GCD-的核心"><a href="#GCD-的核心" class="headerlink" title="GCD 的核心"></a>GCD 的核心</h2><h3 id="任务及其执行方式"><a href="#任务及其执行方式" class="headerlink" title="任务及其执行方式"></a>任务及其执行方式</h3><p>任务就是线程中要执行的代码，它可以随同队列的创建一起被创建，然后将这个任务添加指定的执行方式（<strong><em>同步执行</em></strong> 和<strong><em>异步执行</em></strong>）。</p>
 <p>想象使用音乐播放器放歌，正在播放的歌就是<strong><font color="#D13720">执行的任务</font></strong>，音乐播放器是先创建了播放列表然后将你选的这首歌添加到播放列表（这就类似于上述的<strong><font color="#D13720">任务随着队列的创建一起创建</font></strong>），最后开始播放，也就是执行任务。</p>
 <p>那<strong><em>同步执行</em></strong> 和<strong><em>异步执行</em></strong> 呢？<br>你先添加歌曲 1 到播放列表，然后添加歌曲 2 到播放列表。歌曲 1 正在播放时，同一音乐播放器的播放列表中的歌曲 2 是无法播放的，（假设此时无法打开另一个播放器，这就相当于不具备开启新线程能力）只能手动切换或是等待歌曲 1 播放完成后才可以播放歌曲 2，也就是必须歌曲 1 结束，歌曲 2 才能进行。<br>这就是<strong><em>同步执行</em></strong>。</p>
